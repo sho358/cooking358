@@ -48,6 +48,7 @@ RSpec.describe "StaticPages", type: :system do
       let!(:user) { create(:user) }
       let!(:dish) { create(:dish, user: user) }
 
+      
       before do 
         login_for_system(user)
       end
@@ -66,6 +67,13 @@ RSpec.describe "StaticPages", type: :system do
       it "「新しい料理を作る」リンクが表示されること" do 
         visit root_path
         expect(page).to have_link "新しい料理を作る", href: new_dish_path
+      end
+
+      it "料理を削除後、削除成功のフラッシュが表示されること" do
+        visit root_path
+        click_on '削除'
+        # page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content '料理が削除されました'
       end
     end
 

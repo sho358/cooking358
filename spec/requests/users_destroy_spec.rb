@@ -37,15 +37,15 @@ RSpec.describe "ユーザーの削除", type: :request do
     end
   end
 
-  context "ログインしていないユーザーの場合" do
-    it "ログインページへリダイレクトすること" do
-      expect {
-        delete user_path(user)
-      }.not_to change(User, :count)
-      expect(response).to have_http_status "302"
-      expect(response).to redirect_to login_path 
-    end
-  end
+#   context "ログインしていないユーザーの場合" do
+#     it "ログインページへリダイレクトすること" do
+#       expect {
+#         delete user_path(user)
+#       }.not_to change(User, :count)
+#       expect(response).to have_http_status "302"
+#       expect(response).to redirect_to login_path 
+#     end
+#   end
 
   context "料理が紐づくユーザーを削除した場合" do 
     it "ユーザーと同時に紐づく料理も削除される" do 
