@@ -13,7 +13,7 @@ RSpec.describe Relationship, type: :model do
   end
 
   it "followed_idがnilの場合、関係性が無効であること" do 
-    rekationship.followed_id = nil
+    relationship.followed_id = nil
     expect(relationship).not_to be_valid
   end
 end
