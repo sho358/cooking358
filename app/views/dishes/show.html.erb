@@ -1,6 +1,12 @@
 <% provide(:title, "#{@dish.name}") %>
 <div class="container">
   <div class="row">
+   <div class="col-md-4">
+     <span class="picture">
+        <%= link_to((image_tag @dish.picture.url), dish_path(@dish.id), class: 'dish-picture') if @dish.picture.url.present? %>
+     </span>
+   </div>
+   <div class="col-md-8">
     <h2 class="dish-name"><%= @dish.name %></h2>
     <div class="change-dish">
       <% if current_user == @dish.user %>
@@ -11,6 +17,8 @@
                                         data: { confirm: "本当に削除しますか？" } %>
       <% end %>  
     </div>
+  
+  
     <h4><%= @dish.description %></h4>
     <h4 class="dish-reference">作り方：<%= link_to "#{@dish.reference}", @dish.reference, target: "_blank" %></h4>
     <h4 class="dish-portion">分量：<%= @dish.portion %> 人分</h4>
@@ -25,6 +33,7 @@
       <div class="dish-info">
         <h5>人気度：</h5><h4><%= @dish.popularity %></h4>
       </div>
+    </div>
     </div>
   </div>
 </div>
