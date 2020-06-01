@@ -98,13 +98,13 @@ RSpec.describe "Users", type: :system do
       expect(user.reload.introduction).to eq "編集：初めまして"
       expect(user.reload.sex).to eq "編集：男性"
     end
-    context "アカウント削除処理", js: true do
-      it "正しく削除できること" do
-        click_link "アカウントを削除する"
-        page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content "自分のアカウントを削除しました"
-      end
-    end
+    # context "アカウント削除処理", js: true do
+    #   it "正しく削除できること" do
+    #     click_link "アカウントを削除する"
+    #     page.driver.browser.switch_to.alert.accept
+    #     expect(page).to have_content "自分のアカウントを削除しました"
+    #   end
+    # end
   end
 
   describe "プロフィールページ" do
